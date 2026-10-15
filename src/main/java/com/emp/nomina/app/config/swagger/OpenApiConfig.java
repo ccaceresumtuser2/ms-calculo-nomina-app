@@ -25,7 +25,7 @@ public class OpenApiConfig {
 						.description(mensajes.get("swagger.descripcion"))
 						.version("1.0")
 						.contact(new Contact().name(mensajes.get("swagger.contacto"))))
-				.addServersItem(new Server().url("http://localhost:8081").description(mensajes.get("swagger.servidor.local")));
+				.addServersItem(new Server().url("http://localhost:8080").description(mensajes.get("swagger.servidor.local")));
 				// Botón "Authorize" en Swagger UI para enviar "Authorization: Bearer <token>"
                 /*
 				.components(new Components().addSecuritySchemes("bearerAuth", new SecurityScheme()

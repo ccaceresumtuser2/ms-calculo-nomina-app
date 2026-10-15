@@ -25,7 +25,7 @@ Microservicio de cálculo de nómina. Consume el servicio de empleados (`https:/
 
 En Linux/macOS: `./mvnw clean spring-boot:run`
 
-La aplicación arranca en **http://localhost:8081**.
+La aplicación arranca en **http://localhost:8080**.
 
 > Si se agrega una dependencia al `pom.xml`, detener la app y volver a arrancar con `clean`. En VS Code, recargar el proyecto Maven (*Java: Clean Java Language Server Workspace*) para que el IDE tome el nuevo classpath.
 
@@ -35,13 +35,13 @@ El `Dockerfile` compila con Maven en una primera etapa y deja solo el JRE 21 (Al
 
 ```bash
 docker build -t ms-calculo-nomina .
-docker run -p 8081:8081 ms-calculo-nomina
+docker run -p 8080:8080 ms-calculo-nomina
 ```
 
 Cualquier propiedad se puede sobrescribir con variables de entorno (mayúsculas, `.` → `_` y sin guiones; `base-url` → `BASEURL`):
 
 ```bash
-docker run -p 8081:8081 \
+docker run -p 8080:8080 \
   -e SPRING_HTTP_SERVICECLIENT_EMPLEADOS_BASEURL=http://host.docker.internal:8091 \
   -e JAVA_OPTS="-XX:MaxRAMPercentage=75" \
   ms-calculo-nomina
