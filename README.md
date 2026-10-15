@@ -1,6 +1,6 @@
 # ms-calculo-nomina
 
-Microservicio de cálculo de nómina. Consume el servicio de empleados (`http://localhost:8091/empleados`) mediante un cliente HTTP declarativo (`@HttpExchange`) y expone los datos por una API REST, con configuración de resiliencia basada en Resilience4j.
+Microservicio de cálculo de nómina. Consume el servicio de empleados (`https://appempleado.onrender.com/empleados`) mediante un cliente HTTP declarativo (`@HttpExchange`) y expone los datos por una API REST, con configuración de resiliencia basada en Resilience4j.
 
 ## Tecnologías
 
@@ -14,7 +14,8 @@ Microservicio de cálculo de nómina. Consume el servicio de empleados (`http://
 ## Requisitos
 
 - JDK 21
-- El servicio de empleados levantado en `http://localhost:8091`
+- Acceso al servicio de empleados (por defecto `https://appempleado.onrender.com`)
+- Docker (opcional)
 
 ## Ejecución
 
@@ -27,6 +28,37 @@ En Linux/macOS: `./mvnw clean spring-boot:run`
 La aplicación arranca en **http://localhost:8081**.
 
 > Si se agrega una dependencia al `pom.xml`, detener la app y volver a arrancar con `clean`. En VS Code, recargar el proyecto Maven (*Java: Clean Java Language Server Workspace*) para que el IDE tome el nuevo classpath.
+
+## Docker
+
+El `Dockerfile` compila con Maven en una primera etapa y deja solo el JRE 21 (Alpine) en la imagen final, ejecutando como usuario sin privilegios.
+
+```bash
+docker build -t ms-calculo-nomina .
+docker run -p 8081:8081 ms-calculo-nomina
+```
+
+Cualquier propiedad se puede sobrescribir con variables de entorno (mayúsculas, `.` → `_` y sin guiones; `base-url` → `BASEURL`):
+
+```bash
+docker run -p 8081:8081 \
+  -e SPRING_HTTP_SERVICECLIENT_EMPLEADOS_BASEURL=http://host.docker.internal:8091 \
+  -e JAVA_OPTS="-XX:MaxRAMPercentage=75" \
+  ms-calculo-nomina
+```
+
+> Dentro del contenedor, `localhost` es el propio contenedor. Para llegar a un servicio que corre en tu máquina usar `host.docker.internal`.
+
+## CI (GitHub Actions)
+
+`.github/workflows/ci.yml` se ejecuta en cada push y pull request a `main`:
+
+| Job | Qué hace |
+|-----|----------|
+| `build` | Java 21 (Temurin) → `./mvnw -B verify` (compila y ejecuta los tests) → guarda el JAR como artefacto |
+| `docker` | Construye la imagen. En push a `main` la publica en `ghcr.io/<usuario>/<repo>` con las etiquetas `latest` y el SHA del commit |
+
+La publicación usa el `GITHUB_TOKEN` del propio workflow; no hace falta configurar secretos.
 
 ## Endpoints
 
@@ -84,7 +116,7 @@ Todo está en `src/main/resources/application.properties`.
 ### Cliente HTTP
 
 ```properties
-spring.http.serviceclient.empleados.base-url=http://localhost:8091
+spring.http.serviceclient.empleados.base-url=https://appempleado.onrender.com
 spring.http.clients.connect-timeout=2s
 spring.http.clients.read-timeout=5s
 ```
