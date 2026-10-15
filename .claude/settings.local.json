@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell([xml]\\(Get-Content -Raw -Encoding UTF8 \"docs\\\\arquitectura.drawio\"\\) | Out-Null; if \\($?\\) { \"XML valido\" })"
+    ]
+  }
+}

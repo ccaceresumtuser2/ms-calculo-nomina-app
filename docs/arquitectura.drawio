@@ -1,0 +1,428 @@
+<mxfile host="app.diagrams.net" pages="3">
+  <diagram id="8F8ISMKL384r6j7HVdoc" name="arquitectura">
+    <mxGraphModel dx="1689" dy="882" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="STbeIWR1t3lVY5xcV4cD-3" edge="1" parent="1" source="STbeIWR1t3lVY5xcV4cD-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" target="STbeIWR1t3lVY5xcV4cD-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="STbeIWR1t3lVY5xcV4cD-6" connectable="0" parent="STbeIWR1t3lVY5xcV4cD-3" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="puerto&amp;nbsp;&lt;div&gt;8091&lt;/div&gt;&lt;div&gt;&lt;b style=&quot;font-size: 12px; white-space: normal; background-color: rgb(236, 236, 236);&quot;&gt;Resilience4j&lt;/b&gt;&lt;span style=&quot;font-size: 12px; white-space: normal; background-color: rgb(236, 236, 236);&quot;&gt; (instancia &quot;empleados&quot;)&lt;/span&gt;&lt;br style=&quot;font-size: 12px; white-space: normal; background-color: rgb(236, 236, 236);&quot;&gt;&lt;font style=&quot;white-space: normal; background-color: rgb(236, 236, 236);&quot;&gt;Retry → CircuitBreaker → RateLimiter → Bulkhead&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.2056" y="-1" as="geometry">
+            <mxPoint x="6" y="-71" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="STbeIWR1t3lVY5xcV4cD-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="ms-calculo-nomina-app" vertex="1">
+          <mxGeometry height="80" width="170" x="90" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="STbeIWR1t3lVY5xcV4cD-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="appempleado" vertex="1">
+          <mxGeometry height="80" width="170" x="420" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="STbeIWR1t3lVY5xcV4cD-4" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="empleados_db" vertex="1">
+          <mxGeometry height="100" width="110" x="460" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="STbeIWR1t3lVY5xcV4cD-5" edge="1" parent="1" source="STbeIWR1t3lVY5xcV4cD-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;" target="STbeIWR1t3lVY5xcV4cD-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MJ2tuB5pR3Ov0EuyveOk-1" connectable="0" parent="STbeIWR1t3lVY5xcV4cD-5" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="5432" vertex="1">
+          <mxGeometry relative="1" x="-0.2218" y="2" as="geometry">
+            <mxPoint x="23" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="arquitectura" name="componentes">
+    <mxGraphModel dx="1689" dy="882" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="800" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ms" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=2;fillColor=#f5f5f5;strokeColor=#666666;verticalAlign=top;align=left;spacingLeft=12;spacingTop=6;fontSize=14;" value="&lt;b&gt;ms-calculo-nomina&lt;/b&gt; · Spring Boot 4.1.1 · Java 21 · puerto 8081" vertex="1">
+          <mxGeometry height="680" width="920" x="200" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="cliente" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;b&gt;Cliente&lt;/b&gt;&lt;br&gt;Swagger UI / Postman / Front" vertex="1">
+          <mxGeometry height="80" width="40" x="70" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="lblConfig" parent="1" style="text;html=1;fontStyle=2;fontColor=#666666;align=left;" value="Configuracion" vertex="1">
+          <mxGeometry height="20" width="200" x="230" y="75" as="geometry" />
+        </mxCell>
+        <mxCell id="swagger" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="&lt;b&gt;OpenApiConfig&lt;/b&gt;&lt;br&gt;Swagger UI&lt;br&gt;/swagger-ui.html" vertex="1">
+          <mxGeometry height="70" width="180" x="230" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="httpcfg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="&lt;b&gt;HttpClientConfig&lt;/b&gt;&lt;br&gt;@ImportHttpServices&lt;br&gt;group = &quot;empleados&quot;" vertex="1">
+          <mxGeometry height="70" width="180" x="450" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="props" parent="1" style="shape=note;whiteSpace=wrap;html=1;size=14;fillColor=#fff2cc;strokeColor=#d6b656;" value="&lt;b&gt;application.properties&lt;/b&gt;&lt;br&gt;base-url, timeouts&lt;br&gt;resilience4j.*.empleados" vertex="1">
+          <mxGeometry height="70" width="190" x="900" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="controller" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;b&gt;EmpleadoController&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;GET /api/empleados/all&lt;br&gt;GET /api/empleados/salario-mayor-8000&lt;/font&gt;" vertex="1">
+          <mxGeometry height="80" width="190" x="230" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="service" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;b&gt;EmpleadoCargoService&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;logica de negocio&lt;br&gt;stream().filter(salario &amp;gt; 8000)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="80" width="180" x="450" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="resil" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=4;dashed=1;fillColor=#ffe6cc;strokeColor=#d79b00;verticalAlign=top;spacingTop=4;" value="&lt;b&gt;Resilience4j&lt;/b&gt; (instancia &quot;empleados&quot;)&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;Retry → CircuitBreaker → RateLimiter → Bulkhead&lt;/font&gt;" vertex="1">
+          <mxGeometry height="250" width="250" x="660" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="impl" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;" value="&lt;b&gt;EmpleadoConsumoClientImp&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;traduce errores HTTP a excepciones&lt;br&gt;fallbackListarEmpleados()&lt;/font&gt;" vertex="1">
+          <mxGeometry height="70" width="210" x="680" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="restclient" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;" value="&lt;b&gt;EmpleadoCargoRestClient&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;interfaz @HttpExchange (RestClient)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="210" x="680" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="lblTrans" parent="1" style="text;html=1;fontStyle=2;fontColor=#666666;align=left;" value="Transversales" vertex="1">
+          <mxGeometry height="20" width="200" x="230" y="525" as="geometry" />
+        </mxCell>
+        <mxCell id="handler" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="&lt;b&gt;GlobalExceptionHandler&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;404 · 429 · 502 · 503 · 500&lt;br&gt;respuesta ApiResponse&lt;/font&gt;" vertex="1">
+          <mxGeometry height="70" width="190" x="230" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="mensajes" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="&lt;b&gt;Mensajes&lt;/b&gt; (MessageSource)&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;usado por controller, cliente,&lt;br&gt;handler, logs y Swagger&lt;/font&gt;" vertex="1">
+          <mxGeometry height="70" width="180" x="450" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="msgfiles" parent="1" style="shape=note;whiteSpace=wrap;html=1;size=14;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="messages.properties&lt;br&gt;swagger.properties" vertex="1">
+          <mxGeometry height="50" width="140" x="470" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="logs" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="&lt;b&gt;RetryLogConfig&lt;/b&gt;&lt;br&gt;&lt;b&gt;CircuitBreakerLogConfig&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;logs de reintentos y estados&lt;/font&gt;" vertex="1">
+          <mxGeometry height="70" width="210" x="680" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="actuator" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" value="&lt;b&gt;Actuator&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;/actuator/health&lt;br&gt;/actuator/circuitbreakers&lt;/font&gt;" vertex="1">
+          <mxGeometry height="70" width="170" x="920" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="cliente" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeWidth=2;strokeColor=#6c8ebf;fontSize=11;" target="controller" value="1. HTTP GET">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="controller" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeWidth=2;fontSize=11;" target="service" value="2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="service" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeWidth=2;fontSize=11;" target="impl" value="3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="impl" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeWidth=2;fontSize=11;" target="restclient" value="4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="restclient" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeWidth=2;strokeColor=#b85450;fontSize=11;" value="5. HTTP GET /empleados&lt;br&gt;timeout 2s / 5s">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1180" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="resil" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=open;dashed=1;strokeColor=#b85450;fontSize=11;exitX=0;exitY=0.75;exitDx=0;exitDy=0;" target="handler" value="excepciones">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="645" y="407" />
+              <mxPoint x="645" y="500" />
+              <mxPoint x="325" y="500" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="httpcfg" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=open;dashed=1;strokeColor=#9673a6;fontSize=11;" target="resil" value="registra el proxy">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="540" y="200" />
+              <mxPoint x="785" y="200" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="props" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=open;dashed=1;strokeColor=#d6b656;fontSize=11;" target="resil" value="lee">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="995" y="200" />
+              <mxPoint x="860" y="200" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="logs" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=open;dashed=1;strokeColor=#d79b00;fontSize=11;" target="resil" value="escucha eventos">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="mensajes" style="html=1;endArrow=open;dashed=1;strokeColor=#d6b656;" target="msgfiles" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="1" source="actuator" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=open;dashed=1;strokeColor=#666666;fontSize=11;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" target="resil" value="estado CB">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" edge="1" parent="1" source="handler" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=open;dashed=1;strokeColor=#b85450;fontSize=11;" target="cliente" value="ApiResponse">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="90" y="585" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FsheW7pc-zidzb9cIO9m-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="&lt;b&gt;Servicio Empleados&lt;/b&gt;&lt;br&gt;localhost:8091 (uvicorn)&lt;br&gt;GET /empleados" vertex="1">
+          <mxGeometry height="110" width="240" x="1190" y="365" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="excepciones-resiliencia" name="Excepciones y resiliencia">
+    <mxGraphModel dx="1600" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1620" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p2_1" value="&lt;b&gt;Excepciones y resiliencia&lt;/b&gt; · instancia Resilience4j &quot;empleados&quot;" style="text;html=1;align=left;verticalAlign=top;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="900" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_2" value="&lt;b&gt;Cadena de Resilience4j&lt;/b&gt; (de afuera hacia adentro)" style="text;html=1;align=left;verticalAlign=top;fontSize=13;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="40" y="55" width="720" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_3" value="&lt;b&gt;@Retry&lt;/b&gt; &amp;nbsp;(capa externa)&lt;br&gt;max-attempts=3 (1 llamada + 2 reintentos)&lt;br&gt;espera 5s, backoff exponencial x2, aleatorio &amp;plusmn;50% &amp;rarr; ~5s, ~10s&lt;br&gt;solo reintenta: ServicioNoDisponibleException, IOException, TimeoutException&lt;br&gt;fallbackMethod = fallbackListarEmpleados" style="rounded=1;whiteSpace=wrap;html=1;arcSize=3;align=left;verticalAlign=top;spacingLeft=10;spacingTop=4;fontSize=11;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="720" height="600" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_4" value="&lt;b&gt;@CircuitBreaker&lt;/b&gt;&lt;br&gt;ventana TIME_BASED 60s · minimo 10 llamadas · abre con &amp;ge;50% fallos&lt;br&gt;llamada lenta &amp;gt; 2s (abre solo si 100% lentas, valor por defecto)&lt;br&gt;OPEN 10s &amp;rarr; 20s &amp;rarr; 40s ... max 120s · HALF_OPEN: 3 llamadas de prueba&lt;br&gt;abierto: lanza CallNotPermittedException sin llamar a :8091" style="rounded=1;whiteSpace=wrap;html=1;arcSize=3;align=left;verticalAlign=top;spacingLeft=10;spacingTop=4;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="70" y="200" width="660" height="460" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_5" value="&lt;b&gt;@RateLimiter&lt;/b&gt;&lt;br&gt;100 llamadas por segundo · timeout 0 (no espera) &amp;rarr; RequestNotPermitted" style="rounded=1;whiteSpace=wrap;html=1;arcSize=3;align=left;verticalAlign=top;spacingLeft=10;spacingTop=4;fontSize=11;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="100" y="320" width="600" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_6" value="&lt;b&gt;@Bulkhead&lt;/b&gt;&lt;br&gt;max 1000 llamadas concurrentes · espera max 500ms &amp;rarr; BulkheadFullException" style="rounded=1;whiteSpace=wrap;html=1;arcSize=3;align=left;verticalAlign=top;spacingLeft=10;spacingTop=4;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="130" y="420" width="540" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_7" value="&lt;b&gt;EmpleadoConsumoClientImp.listarEmpleados()&lt;/b&gt;&lt;br&gt;EmpleadoCargoRestClient &amp;rarr; GET http://localhost:8091/empleados&lt;br&gt;connect-timeout 2s · read-timeout 5s" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="160" y="520" width="480" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_8" value="&lt;b&gt;Fallback&lt;/b&gt; (cuando @Retry ya no puede mas)&lt;br&gt;fallbackListarEmpleados(ServicioNoDisponibleException) &amp;rarr; motivo &quot;reintentos agotados&quot;&lt;br&gt;fallbackListarEmpleados(CallNotPermittedException) &amp;rarr; motivo &quot;circuito abierto&quot;&lt;br&gt;ambos &amp;rarr; usarUltimaRespuestaOFallar() &amp;rarr; lanza ServicioNoDisponibleException" style="rounded=1;whiteSpace=wrap;html=1;arcSize=3;align=left;verticalAlign=top;spacingLeft=10;spacingTop=4;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="40" y="710" width="720" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_9" value="" style="html=1;endArrow=block;dashed=1;strokeColor=#b85450;" edge="1" parent="1" source="p2_3" target="p2_8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_10" value="&lt;b&gt;Jerarquia de excepciones propias&lt;/b&gt;" style="text;html=1;align=left;verticalAlign=top;fontSize=13;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="40" y="820" width="400" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_11" value="RuntimeException" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="300" y="845" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_12" value="ServicioExternoException" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="895" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_13" value="ServicioNoDisponibleException" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="945" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_14" value="RecursoNoEncontradoException" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="500" y="895" width="210" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_15" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=0;fontSize=10;" edge="1" parent="1" source="p2_12" target="p2_11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_16" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=0;fontSize=10;" edge="1" parent="1" source="p2_14" target="p2_11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_17" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=0;fontSize=10;" edge="1" parent="1" source="p2_13" target="p2_12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_18" value="&lt;b&gt;Mapeo de errores&lt;/b&gt; (EmpleadoConsumoClientImp &amp;rarr; GlobalExceptionHandler)" style="text;html=1;align=left;verticalAlign=top;fontSize=13;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="820" y="55" width="760" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_19" value="Error de origen" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#333333;fontColor=#ffffff;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="820" y="80" width="250" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_20" value="Se convierte en" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#333333;fontColor=#ffffff;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="80" width="250" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_21" value="Respuesta HTTP" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#333333;fontColor=#ffffff;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="80" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_22" value="&lt;b&gt;ResourceAccessException&lt;/b&gt;&lt;br&gt;sin conexion / timeout" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;strokeColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="820" y="125" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_23" value="&lt;b&gt;ServicioNoDisponibleException&lt;/b&gt;&lt;br&gt;se reintenta" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;strokeColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="125" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_24" value="&lt;b&gt;503&lt;/b&gt;&lt;br&gt;Service Unavailable" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="125" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_25" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;fontSize=10;" edge="1" parent="1" source="p2_22" target="p2_23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_26" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;fontSize=10;" edge="1" parent="1" source="p2_23" target="p2_24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_27" value="&lt;b&gt;HttpServerErrorException&lt;/b&gt;&lt;br&gt;el servicio responde 5xx" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;strokeColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="820" y="200" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_28" value="&lt;b&gt;ServicioNoDisponibleException&lt;/b&gt;&lt;br&gt;se reintenta" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;strokeColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="200" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_29" value="&lt;b&gt;503&lt;/b&gt;&lt;br&gt;Service Unavailable" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="200" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_30" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;fontSize=10;" edge="1" parent="1" source="p2_27" target="p2_28">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_31" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;fontSize=10;" edge="1" parent="1" source="p2_28" target="p2_29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_32" value="&lt;b&gt;HttpClientErrorException.NotFound&lt;/b&gt;&lt;br&gt;el servicio responde 404" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;strokeColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="820" y="275" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_33" value="&lt;b&gt;RecursoNoEncontradoException&lt;/b&gt;&lt;br&gt;no se reintenta" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;strokeColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="275" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_34" value="&lt;b&gt;404&lt;/b&gt;&lt;br&gt;Not Found" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="275" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_35" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;fontSize=10;" edge="1" parent="1" source="p2_32" target="p2_33">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_36" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;fontSize=10;" edge="1" parent="1" source="p2_33" target="p2_34">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_37" value="&lt;b&gt;RestClientResponseException&lt;/b&gt;&lt;br&gt;otros 4xx (400, 401, 403...)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;strokeColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="820" y="350" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_38" value="&lt;b&gt;ServicioExternoException&lt;/b&gt;&lt;br&gt;no se reintenta" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;strokeColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="350" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_39" value="&lt;b&gt;502&lt;/b&gt;&lt;br&gt;Bad Gateway" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="350" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_40" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;fontSize=10;" edge="1" parent="1" source="p2_37" target="p2_38">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_41" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;fontSize=10;" edge="1" parent="1" source="p2_38" target="p2_39">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_42" value="&lt;b&gt;RestClientException&lt;/b&gt;&lt;br&gt;JSON no coincide con el DTO" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;strokeColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="820" y="425" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_43" value="&lt;b&gt;ServicioExternoException&lt;/b&gt;&lt;br&gt;no se reintenta" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;strokeColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="425" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_44" value="&lt;b&gt;502&lt;/b&gt;&lt;br&gt;Bad Gateway" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="425" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_45" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;fontSize=10;" edge="1" parent="1" source="p2_42" target="p2_43">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_46" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;fontSize=10;" edge="1" parent="1" source="p2_43" target="p2_44">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_47" value="&lt;b&gt;CallNotPermittedException&lt;/b&gt;&lt;br&gt;circuito abierto" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;strokeColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="820" y="500" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_48" value="fallback &amp;rarr; &lt;b&gt;ServicioNoDisponibleException&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;strokeColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="500" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_49" value="&lt;b&gt;503&lt;/b&gt;&lt;br&gt;Service Unavailable" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="500" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_50" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;fontSize=10;" edge="1" parent="1" source="p2_47" target="p2_48">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_51" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;fontSize=10;" edge="1" parent="1" source="p2_48" target="p2_49">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_52" value="&lt;b&gt;RequestNotPermitted&lt;/b&gt;&lt;br&gt;RateLimiter: &amp;gt; 100 llamadas/s" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;strokeColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="820" y="575" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_53" value="se propaga sin cambios" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;strokeColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="575" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_54" value="&lt;b&gt;429&lt;/b&gt;&lt;br&gt;Too Many Requests" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="575" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_55" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;fontSize=10;" edge="1" parent="1" source="p2_52" target="p2_53">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_56" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;fontSize=10;" edge="1" parent="1" source="p2_53" target="p2_54">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_57" value="&lt;b&gt;BulkheadFullException&lt;/b&gt;&lt;br&gt;Bulkhead lleno" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;strokeColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="820" y="650" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_58" value="se propaga sin cambios" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;strokeColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="650" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_59" value="&lt;b&gt;503&lt;/b&gt;&lt;br&gt;Service Unavailable" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="650" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_60" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;fontSize=10;" edge="1" parent="1" source="p2_57" target="p2_58">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_61" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;fontSize=10;" edge="1" parent="1" source="p2_58" target="p2_59">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_62" value="&lt;b&gt;Cualquier otra Exception&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;strokeColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="820" y="725" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_63" value="se propaga sin cambios" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;strokeColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="725" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_64" value="&lt;b&gt;500&lt;/b&gt;&lt;br&gt;Internal Server Error" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="725" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_65" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;fontSize=10;" edge="1" parent="1" source="p2_62" target="p2_63">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_66" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;fontSize=10;" edge="1" parent="1" source="p2_63" target="p2_64">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_67" value="La respuesta siempre es un &lt;b&gt;ApiResponse&lt;/b&gt; { status, message, timestamp } con el texto de messages.properties.&lt;br&gt;Si ServicioNoDisponibleException agota los reintentos, el fallback la vuelve a lanzar y el handler responde 503." style="text;html=1;align=left;verticalAlign=top;fontSize=11;fontColor=#333333;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="820" y="805" width="750" height="45" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="secuencia" name="Secuencia">
+    <mxGraphModel dx="1600" dy="1400" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1560" pageHeight="1759" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p3_43" value="&lt;b&gt;Diagrama de secuencia&lt;/b&gt; · GET /api/empleados/all" style="text;html=1;fontSize=18;align=left;" vertex="1" parent="1"><mxGeometry x="20" y="10" width="700" height="30" as="geometry" /></mxCell>
+        <mxCell id="p3_44" value="Logica de negocio &amp;middot; EmpleadoCargoService" style="shape=umlFrame;whiteSpace=wrap;html=1;width=280;height=24;fontSize=11;fontStyle=1;fillColor=none;swimlaneFillColor=none;strokeColor=#2d7600;fontColor=#2d7600;" vertex="1" parent="1"><mxGeometry x="390" y="529" width="385" height="158" as="geometry" /></mxCell>
+        <mxCell id="p3_45" value="Escenario 1: servicio disponible" style="shape=umlFrame;whiteSpace=wrap;html=1;width=260;height=24;fontSize=11;fontStyle=1;fillColor=none;swimlaneFillColor=none;" vertex="1" parent="1"><mxGeometry x="20" y="140" width="1415" height="622" as="geometry" /></mxCell>
+        <mxCell id="p3_46" value="loop &amp;nbsp;[3 intentos, espera ~5s y ~10s]" style="shape=umlFrame;whiteSpace=wrap;html=1;width=250;height=24;fontSize=11;fontStyle=1;fillColor=none;swimlaneFillColor=none;" vertex="1" parent="1"><mxGeometry x="605" y="955" width="645" height="210" as="geometry" /></mxCell>
+        <mxCell id="p3_47" value="Escenario 2: servicio caido &amp;rarr; reintentos + fallback" style="shape=umlFrame;whiteSpace=wrap;html=1;width=330;height=24;fontSize=11;fontStyle=1;fillColor=none;swimlaneFillColor=none;" vertex="1" parent="1"><mxGeometry x="20" y="792" width="1415" height="603" as="geometry" /></mxCell>
+        <mxCell id="p3_48" value="Escenario 3: circuito abierto (OPEN)" style="shape=umlFrame;whiteSpace=wrap;html=1;width=270;height=24;fontSize=11;fontStyle=1;fillColor=none;swimlaneFillColor=none;" vertex="1" parent="1"><mxGeometry x="20" y="1425" width="1415" height="274" as="geometry" /></mxCell>
+        <mxCell id="p3_49" value="Cliente" style="shape=umlLifeline;participant=umlActor;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;collapsible=0;recursiveResize=0;verticalAlign=top;spacingTop=36;outlineConnect=0;size=55;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1"><mxGeometry x="30" y="60" width="160" height="1659" as="geometry" /></mxCell>
+        <mxCell id="p3_50" value="EmpleadoController" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;collapsible=0;recursiveResize=0;outlineConnect=0;size=55;fontSize=11;fontStyle=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1"><mxGeometry x="205" y="60" width="160" height="1659" as="geometry" /></mxCell>
+        <mxCell id="p3_51" value="EmpleadoCargoService" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;collapsible=0;recursiveResize=0;outlineConnect=0;size=55;fontSize=11;fontStyle=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1"><mxGeometry x="380" y="60" width="160" height="1659" as="geometry" /></mxCell>
+        <mxCell id="p3_52" value="Proxy Resilience4j&lt;br&gt;Retry · CB · RL · Bulkhead" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;collapsible=0;recursiveResize=0;outlineConnect=0;size=55;fontSize=11;fontStyle=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1"><mxGeometry x="555" y="60" width="160" height="1659" as="geometry" /></mxCell>
+        <mxCell id="p3_53" value="EmpleadoConsumoClientImp" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;collapsible=0;recursiveResize=0;outlineConnect=0;size=55;fontSize=11;fontStyle=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1"><mxGeometry x="730" y="60" width="160" height="1659" as="geometry" /></mxCell>
+        <mxCell id="p3_54" value="EmpleadoCargoRestClient&lt;br&gt;@HttpExchange" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;collapsible=0;recursiveResize=0;outlineConnect=0;size=55;fontSize=11;fontStyle=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1"><mxGeometry x="905" y="60" width="160" height="1659" as="geometry" /></mxCell>
+        <mxCell id="p3_55" value="Servicio Empleados&lt;br&gt;:8091" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;collapsible=0;recursiveResize=0;outlineConnect=0;size=55;fontSize=11;fontStyle=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1"><mxGeometry x="1080" y="60" width="160" height="1659" as="geometry" /></mxCell>
+        <mxCell id="p3_56" value="GlobalExceptionHandler" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;collapsible=0;recursiveResize=0;outlineConnect=0;size=55;fontSize=11;fontStyle=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1"><mxGeometry x="1255" y="60" width="160" height="1659" as="geometry" /></mxCell>
+        <mxCell id="p3_1" value="GET /api/empleados/all" style="html=1;verticalAlign=bottom;fontSize=10;strokeColor=#000000;fontColor=#000000;endArrow=block;endFill=1;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="110" y="185" as="sourcePoint" /><mxPoint x="285" y="185" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="p3_2" value="service.listarEmpleados()" style="html=1;verticalAlign=bottom;fontSize=10;strokeColor=#000000;fontColor=#000000;endArrow=block;endFill=1;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="285" y="217" as="sourcePoint" /><mxPoint x="460" y="217" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="p3_3" value="listarEmpleadosMayores8000()" style="html=1;align=left;spacingLeft=4;verticalAlign=middle;fontSize=10;endArrow=block;endFill=1;rounded=0;strokeColor=#000000;fontColor=#000000;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="460" y="235" as="sourcePoint" /><mxPoint x="460" y="255" as="targetPoint" /><Array as="points"><mxPoint x="495" y="235" /><mxPoint x="495" y="255" /></Array></mxGeometry></mxCell>
+        <mxCell id="p3_4" value="client.listarEmpleados()" style="html=1;verticalAlign=bottom;fontSize=10;strokeColor=#000000;fontColor=#000000;endArrow=block;endFill=1;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="460" y="283" as="sourcePoint" /><mxPoint x="635" y="283" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="p3_5" value="Retry &amp;rsaquo; CB &amp;rsaquo; RL &amp;rsaquo; Bulkhead permiten la llamada" style="html=1;verticalAlign=bottom;fontSize=10;strokeColor=#000000;fontColor=#000000;endArrow=block;endFill=1;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="635" y="315" as="sourcePoint" /><mxPoint x="810" y="315" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="p3_6" value="listarEmpleadoCargo()" style="html=1;verticalAlign=bottom;fontSize=10;strokeColor=#000000;fontColor=#000000;endArrow=block;endFill=1;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="810" y="347" as="sourcePoint" /><mxPoint x="985" y="347" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="p3_7" value="GET /empleados" style="html=1;verticalAlign=bottom;fontSize=10;strokeColor=#000000;fontColor=#000000;endArrow=block;endFill=1;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="985" y="379" as="sourcePoint" /><mxPoint x="1160" y="379" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="p3_8" value="200 OK [JSON]" style="html=1;verticalAlign=bottom;fontSize=10;strokeColor=#000000;fontColor=#000000;dashed=1;endArrow=open;endSize=8;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="1160" y="411" as="sourcePoint" /><mxPoint x="985" y="411" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="p3_9" value="List&amp;lt;EmpleadoCargoResponse&amp;gt; (todos)" style="html=1;verticalAlign=bottom;fontSize=10;strokeColor=#000000;fontColor=#000000;dashed=1;endArrow=open;endSize=8;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="985" y="443" as="sourcePoint" /><mxPoint x="810" y="443" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="p3_10" value="lista" style="html=1;verticalAlign=bottom;fontSize=10;strokeColor=#000000;fontColor=#000000;dashed=1;endArrow=open;endSize=8;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="810" y="475" as="sourcePoint" /><mxPoint x="635" y="475" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="p3_11" value="lista completa (CB registra exito)" style="html=1;verticalAlign=bottom;fontSize=10;strokeColor=#000000;fontColor=#000000;dashed=1;endArrow=open;endSize=8;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="635" y="507" as="sourcePoint" /><mxPoint x="460" y="507" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="p3_12" value="&lt;b&gt;1.&lt;/b&gt; .stream() &amp;nbsp;&amp;nbsp;List &amp;rarr; Stream" style="html=1;align=left;spacingLeft=4;verticalAlign=middle;fontSize=10;endArrow=block;endFill=1;rounded=0;strokeColor=#2d7600;fontColor=#2d7600;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="460" y="567" as="sourcePoint" /><mxPoint x="460" y="587" as="targetPoint" /><Array as="points"><mxPoint x="495" y="567" /><mxPoint x="495" y="587" /></Array></mxGeometry></mxCell>
+        <mxCell id="p3_13" value="&lt;b&gt;2.&lt;/b&gt; .filter(e -&amp;gt; e.salario() &amp;gt; 8000)" style="html=1;align=left;spacingLeft=4;verticalAlign=middle;fontSize=10;endArrow=block;endFill=1;rounded=0;strokeColor=#2d7600;fontColor=#2d7600;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="460" y="607" as="sourcePoint" /><mxPoint x="460" y="627" as="targetPoint" /><Array as="points"><mxPoint x="495" y="607" /><mxPoint x="495" y="627" /></Array></mxGeometry></mxCell>
+        <mxCell id="p3_14" value="&lt;b&gt;3.&lt;/b&gt; .toList() &amp;nbsp;&amp;nbsp;Stream &amp;rarr; List" style="html=1;align=left;spacingLeft=4;verticalAlign=middle;fontSize=10;endArrow=block;endFill=1;rounded=0;strokeColor=#2d7600;fontColor=#2d7600;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="460" y="647" as="sourcePoint" /><mxPoint x="460" y="667" as="targetPoint" /><Array as="points"><mxPoint x="495" y="647" /><mxPoint x="495" y="667" /></Array></mxGeometry></mxCell>
+        <mxCell id="p3_15" value="&lt;b&gt;Regla de negocio&lt;/b&gt;&lt;br&gt;Solo se devuelven los empleados&lt;br&gt;con salario mayor a 8000.&lt;br&gt;e.salario() es el getter del record&lt;br&gt;EmpleadoCargoResponse." style="shape=note;whiteSpace=wrap;html=1;size=10;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;align=left;spacingLeft=6;" vertex="1" parent="1"><mxGeometry x="790" y="559" width="200" height="80" as="geometry" /></mxCell>
+        <mxCell id="p3_16" value="lista filtrada (salario &amp;gt; 8000)" style="html=1;verticalAlign=bottom;fontSize=10;strokeColor=#000000;fontColor=#000000;dashed=1;endArrow=open;endSize=8;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="460" y="705" as="sourcePoint" /><mxPoint x="285" y="705" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="p3_17" value="200 OK &amp;nbsp;ApiResponse { data: [...] }" style="html=1;verticalAlign=bottom;fontSize=10;strokeColor=#000000;fontColor=#000000;dashed=1;endArrow=open;endSize=8;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="285" y="737" as="sourcePoint" /><mxPoint x="110" y="737" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="p3_18" value="GET /api/empleados/all" style="html=1;verticalAlign=bottom;fontSize=10;strokeColor=#000000;fontColor=#000000;endArrow=block;endFill=1;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="110" y="837" as="sourcePoint" /><mxPoint x="285" y="837" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="p3_19" value="service.listarEmpleados()" style="html=1;verticalAlign=bottom;fontSize=10;strokeColor=#000000;fontColor=#000000;endArrow=block;endFill=1;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="285" y="869" as="sourcePoint" /><mxPoint x="460" y="869" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="p3_20" value="listarEmpleadosMayores8000()" style="html=1;align=left;spacingLeft=4;verticalAlign=middle;fontSize=10;endArrow=block;endFill=1;rounded=0;strokeColor=#000000;fontColor=#000000;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="460" y="887" as="sourcePoint" /><mxPoint x="460" y="907" as="targetPoint" /><Array as="points"><mxPoint x="495" y="887" /><mxPoint x="495" y="907" /></Array></mxGeometry></mxCell>
+        <mxCell id="p3_21" value="client.listarEmpleados()" style="html=1;verticalAlign=bottom;fontSize=10;strokeColor=#000000;fontColor=#000000;endArrow=block;endFill=1;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="460" y="935" as="sourcePoint" /><mxPoint x="635" y="935" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="p3_22" value="listarEmpleados()" style="html=1;verticalAlign=bottom;fontSize=10;strokeColor=#000000;fontColor=#000000;endArrow=block;endFill=1;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="635" y="995" as="sourcePoint" /><mxPoint x="810" y="995" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="p3_23" value="listarEmpleadoCargo()" style="html=1;verticalAlign=bottom;fontSize=10;strokeColor=#000000;fontColor=#000000;endArrow=block;endFill=1;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="810" y="1025" as="sourcePoint" /><mxPoint x="985" y="1025" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="p3_24" value="GET /empleados" style="html=1;verticalAlign=bottom;fontSize=10;strokeColor=#000000;fontColor=#000000;endArrow=block;endFill=1;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="985" y="1055" as="sourcePoint" /><mxPoint x="1160" y="1055" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="p3_25" value="&amp;#10007; sin respuesta / timeout / 5xx" style="html=1;verticalAlign=bottom;fontSize=10;strokeColor=#b85450;fontColor=#b85450;dashed=1;endArrow=open;endSize=8;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="1160" y="1085" as="sourcePoint" /><mxPoint x="985" y="1085" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="p3_26" value="ResourceAccessException / HttpServerErrorException" style="html=1;verticalAlign=bottom;fontSize=10;strokeColor=#b85450;fontColor=#b85450;dashed=1;endArrow=open;endSize=8;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="985" y="1115" as="sourcePoint" /><mxPoint x="810" y="1115" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="p3_27" value="ServicioNoDisponibleException" style="html=1;verticalAlign=bottom;fontSize=10;strokeColor=#b85450;fontColor=#b85450;dashed=1;endArrow=open;endSize=8;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="810" y="1145" as="sourcePoint" /><mxPoint x="635" y="1145" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="p3_28" value="RetryLogConfig:&lt;br&gt;&amp;#128257; Reintento 1/2 en ~5000 ms&lt;br&gt;&amp;#128257; Reintento 2/2 en ~10000 ms" style="shape=note;whiteSpace=wrap;html=1;size=10;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;align=left;spacingLeft=6;" vertex="1" parent="1"><mxGeometry x="1255" y="995" width="170" height="60" as="geometry" /></mxCell>
+        <mxCell id="p3_29" value="reintentos agotados &amp;rarr; fallbackListarEmpleados()" style="html=1;align=left;spacingLeft=4;verticalAlign=middle;fontSize=10;endArrow=block;endFill=1;rounded=0;strokeColor=#b85450;fontColor=#b85450;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="635" y="1190" as="sourcePoint" /><mxPoint x="635" y="1210" as="targetPoint" /><Array as="points"><mxPoint x="670" y="1190" /><mxPoint x="670" y="1210" /></Array></mxGeometry></mxCell>
+        <mxCell id="p3_30" value="ServicioNoDisponibleException" style="html=1;verticalAlign=bottom;fontSize=10;strokeColor=#b85450;fontColor=#b85450;dashed=1;endArrow=open;endSize=8;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="635" y="1240" as="sourcePoint" /><mxPoint x="460" y="1240" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="p3_31" value="La logica de negocio&lt;br&gt;(stream / filter / toList)&lt;br&gt;NO se ejecuta." style="shape=note;whiteSpace=wrap;html=1;size=10;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;align=left;spacingLeft=6;" vertex="1" parent="1"><mxGeometry x="375" y="1248" width="150" height="50" as="geometry" /></mxCell>
+        <mxCell id="p3_32" value="ServicioNoDisponibleException" style="html=1;verticalAlign=bottom;fontSize=10;strokeColor=#b85450;fontColor=#b85450;dashed=1;endArrow=open;endSize=8;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="460" y="1310" as="sourcePoint" /><mxPoint x="285" y="1310" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="p3_33" value="@ExceptionHandler(ServicioNoDisponibleException)" style="html=1;verticalAlign=bottom;fontSize=10;strokeColor=#b85450;fontColor=#b85450;endArrow=block;endFill=1;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="285" y="1340" as="sourcePoint" /><mxPoint x="1335" y="1340" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="p3_34" value="503 Service Unavailable &amp;nbsp;ApiResponse" style="html=1;verticalAlign=bottom;fontSize=10;strokeColor=#b85450;fontColor=#b85450;dashed=1;endArrow=open;endSize=8;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="1335" y="1370" as="sourcePoint" /><mxPoint x="110" y="1370" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="p3_35" value="GET /api/empleados/all" style="html=1;verticalAlign=bottom;fontSize=10;strokeColor=#000000;fontColor=#000000;endArrow=block;endFill=1;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="110" y="1470" as="sourcePoint" /><mxPoint x="285" y="1470" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="p3_36" value="service.listarEmpleados()" style="html=1;verticalAlign=bottom;fontSize=10;strokeColor=#000000;fontColor=#000000;endArrow=block;endFill=1;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="285" y="1502" as="sourcePoint" /><mxPoint x="460" y="1502" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="p3_37" value="listarEmpleadosMayores8000()" style="html=1;align=left;spacingLeft=4;verticalAlign=middle;fontSize=10;endArrow=block;endFill=1;rounded=0;strokeColor=#000000;fontColor=#000000;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="460" y="1520" as="sourcePoint" /><mxPoint x="460" y="1540" as="targetPoint" /><Array as="points"><mxPoint x="495" y="1520" /><mxPoint x="495" y="1540" /></Array></mxGeometry></mxCell>
+        <mxCell id="p3_38" value="client.listarEmpleados()" style="html=1;verticalAlign=bottom;fontSize=10;strokeColor=#000000;fontColor=#000000;endArrow=block;endFill=1;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="460" y="1568" as="sourcePoint" /><mxPoint x="635" y="1568" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="p3_39" value="CB abierto: CallNotPermittedException (no llama a :8091)&lt;br&gt;&amp;rarr; fallbackListarEmpleados()" style="html=1;align=left;spacingLeft=4;verticalAlign=middle;fontSize=10;endArrow=block;endFill=1;rounded=0;strokeColor=#b85450;fontColor=#b85450;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="635" y="1590" as="sourcePoint" /><mxPoint x="635" y="1610" as="targetPoint" /><Array as="points"><mxPoint x="670" y="1590" /><mxPoint x="670" y="1610" /></Array></mxGeometry></mxCell>
+        <mxCell id="p3_40" value="Tras 10s pasa a HALF_OPEN y deja pasar 3 llamadas de prueba" style="shape=note;whiteSpace=wrap;html=1;size=10;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;align=left;spacingLeft=6;" vertex="1" parent="1"><mxGeometry x="1080" y="1585" width="170" height="45" as="geometry" /></mxCell>
+        <mxCell id="p3_41" value="ServicioNoDisponibleException (se propaga por Service y Controller)" style="html=1;verticalAlign=bottom;fontSize=10;strokeColor=#b85450;fontColor=#b85450;endArrow=block;endFill=1;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="635" y="1642" as="sourcePoint" /><mxPoint x="1335" y="1642" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="p3_42" value="503 Service Unavailable &amp;nbsp;ApiResponse" style="html=1;verticalAlign=bottom;fontSize=10;strokeColor=#b85450;fontColor=#b85450;dashed=1;endArrow=open;endSize=8;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="1335" y="1674" as="sourcePoint" /><mxPoint x="110" y="1674" as="targetPoint" /></mxGeometry></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
